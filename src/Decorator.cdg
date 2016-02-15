@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Decorator">
+  <ClassDiagramComponents>
+    <Class name="Mainclass" package="" visibility="public" xPosition="540.0" yPosition="34.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ShapeDecorator" package="" visibility="public" isAbstract="true" xPosition="841.0" yPosition="204.0">
+      <Fields>
+        <Field name="shape" type="Shape" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Shape" name="s"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Circle" package="" visibility="public" xPosition="53.0" yPosition="417.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Rectangle" package="" visibility="public" xPosition="258.0" yPosition="417.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Line" package="" visibility="public" xPosition="454.0" yPosition="417.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BorderDecorator" package="" visibility="public" xPosition="715.0" yPosition="417.0">
+      <Fields>
+        <Field name="color" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Shape" name="s"/>
+          <Argument type="String" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FillDecorator" package="" visibility="public" xPosition="994.0" yPosition="417.0">
+      <Fields>
+        <Field name="color" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Shape" name="s"/>
+          <Argument type="String" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Shape" package="" visibility="public" xPosition="258.0" yPosition="228.0">
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Line" target="Shape"/>
+    <IsRelation name="is" source="FillDecorator" target="ShapeDecorator"/>
+    <HasRelation name="has" source="ShapeDecorator" target="Shape" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="Mainclass" target="ShapeDecorator" sourceCardinality="1..1" targetCardinality="0..*"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="ShapeDecorator" target="Shape"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Circle" target="Shape"/>
+    <IsRelation name="is" source="BorderDecorator" target="ShapeDecorator"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Rectangle" target="Shape"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
